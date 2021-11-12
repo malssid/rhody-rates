@@ -1,38 +1,38 @@
 version: '2'
 services:
- web:
-   image: caddy
-   restart: unless-stopped
-   ports:
-     - "80:80"
-     - "443:443"
-   volumes:
-     - ./Caddyfile:/etc/caddy/Caddyfile
-     - caddy_data:/data
-     - caddy_config:/config
- frontend:
-   build: ./frontend
-   restart: unless-stopped
-   ports:
-     - "3000:3000"
- backend:
-   build: ./backend
-   restart: unless-stopped
-   ports:
-     - "4000:4000"
- db:
-   image: postgres
-   restart: always
-   environment:
-     POSTGRES_PASSWORD: example
+  web:
+    image: caddy
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - caddy_data:/data
+      - caddy_config:/config
+  frontend:
+    build: ./frontend
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+  backend:
+    build: ./backend
+    restart: unless-stopped
+    ports:
+      - "4000:4000"
+  db:
+    image: postgres
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD: example
     volumes:
       - ./data:/var/lib/postgresql/data
- adminer:
-   image: adminer
-   restart: always
-   ports:
-     - 8080:8080
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
  
 volumes:
- caddy_data:
- caddy_config:
+  caddy_data:
+  caddy_config:
