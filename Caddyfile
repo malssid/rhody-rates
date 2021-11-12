@@ -5,3 +5,7 @@ www.rhodyrates.com, rhodyrates.com{
 api.rhodyrates.com {
     reverse_proxy backend:4000
 }
+
+db.rhodyrates.com {
+    reverse_proxy phppgadmin:8080
+}
