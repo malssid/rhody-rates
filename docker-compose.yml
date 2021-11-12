@@ -26,10 +26,10 @@ services:
     volumes:
       - ./data:/var/lib/postgresql/data
   phppgadmin:
-    image: bitnami/postgresql:11
+    image: bitnami/phppgadmin
     restart: always
     ports:
-      - "8080:8080"
+      - "8080:8181"
     environment:
       POSTGRESQL_PASSWORD: example
     depends_on:
