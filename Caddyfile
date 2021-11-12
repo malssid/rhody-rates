@@ -1,4 +1,4 @@
-www.rhodyrates.com, rhodyrates.com{
+www.rhodyrates.com, rhodyrates.com {
    reverse_proxy frontend:3000
 }
 
