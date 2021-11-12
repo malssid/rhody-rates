@@ -1,4 +1,4 @@
-version: '2'
+version: "2"
 services:
   web:
     image: caddy
@@ -23,16 +23,16 @@ services:
   db:
     image: postgres
     restart: always
-    environment:
-      POSTGRESQL_PASSWORD: example
     volumes:
       - ./data:/var/lib/postgresql/data
   phppgadmin:
     image: bitnami/postgresql:11
     restart: always
+    environment:
+      POSTGRESQL_PASSWORD: example
     depends_on:
       - db
- 
+
 volumes:
   caddy_data:
   caddy_config:
