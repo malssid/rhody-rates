@@ -10,7 +10,7 @@ WORKDIR /usr/src/app
 
 COPY . /usr/src/app
 
-RUN yarn install
+RUN yarn install --network-timeout 1000000
 
 EXPOSE 3000
 CMD ["yarn", "start"]
