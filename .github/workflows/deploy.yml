@@ -1,0 +1,12 @@
+on:
+push:
+  branches: [main]
+
+jobs:
+build:
+  runs-on: ubuntu-latest
+  steps:
+    - uses: actions/checkout@v2
+    - run: |
+        sshpass -p "${{ secrets.PROD_PASSWORD }}" rsync -Pav -e "ssh -p 22 -o StrictHostKeyChecking=no" $GITHUB_WORKSPACE "${{ secrets.DEPLOY_USERNAME }}"@"${{ secrets.PROD_SERVER }}:~/"
+        sshpass -p "${{ secrets.PROD_PASSWORD }}" ssh -p 22 -o StrictHostKeyChecking=no "${{ secrets.DEPLOY_USERNAME }}"@"${{ secrets.PROD_SERVER }}" "cd rhody-rates/; docker-compose restart"
