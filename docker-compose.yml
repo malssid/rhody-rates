@@ -28,6 +28,8 @@ services:
   phppgadmin:
     image: bitnami/postgresql:11
     restart: always
+    ports:
+      - "8080:8080"
     environment:
       POSTGRESQL_PASSWORD: example
     depends_on:
