@@ -1,7 +1,7 @@
 const Auth = {
   signIn: async (user) => {
     const response = await fetch(
-      `${process.env.REACT_APP_API_URL}/student/signin`,
+      `${process.env.REACT_APP_API_URL}/auth/signin`,
       {
         method: "post",
         body: JSON.stringify(user),
@@ -16,7 +16,7 @@ const Auth = {
   },
   signUp: async (user) => {
     const response = await fetch(
-      `${process.env.REACT_APP_API_URL}/student/signup`,
+      `${process.env.REACT_APP_API_URL}/auth/signup`,
       {
         method: "post",
         body: JSON.stringify(user),
@@ -30,7 +30,7 @@ const Auth = {
   },
   signOut: async () => {
     const response = await fetch(
-      `${process.env.REACT_APP_API_URL}/student/signout`,
+      `${process.env.REACT_APP_API_URL}/auth/signout`,
       {
         credentials: "include",
       }
@@ -40,7 +40,7 @@ const Auth = {
   },
   isAuthenticated: async () => {
     const response = await fetch(
-      `${process.env.REACT_APP_API_URL}/student/authenticated`,
+      `${process.env.REACT_APP_API_URL}/auth/authenticated`,
       { credentials: "include" }
     );
     if (response.status !== 401) {

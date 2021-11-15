@@ -6,12 +6,14 @@ import Home from "./components/Home";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import PrivateRoute from "./CustomRoutes/PrivateRoute";
 import AuthProvider from "./contexts/AuthContext";
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
     <ChakraProvider theme={theme}>
       <Router>
         <AuthProvider>
+          <Navbar />
           <Routes>
             <Route
               path="/"

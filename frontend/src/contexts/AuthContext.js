@@ -24,18 +24,14 @@ const AuthProvider = ({ children }) => {
     checkAuthenticated();
   }, []);
 
-  return (
-    <div>
-      {loading ? (
-        <Loading />
-      ) : (
-        <AuthContext.Provider
-          value={{ user, setUser, isAuthenticated, setIsAuthenticated }}
-        >
-          {children}
-        </AuthContext.Provider>
-      )}
-    </div>
+  return loading ? (
+    <Loading />
+  ) : (
+    <AuthContext.Provider
+      value={{ user, setUser, isAuthenticated, setIsAuthenticated }}
+    >
+      {children}
+    </AuthContext.Provider>
   );
 };
 
