@@ -1,12 +1,16 @@
 FROM node:16-alpine
 
+RUN mkdir -p /usr/src/app
+
+ENV PORT 3000
+
+RUN apk add --no-cache libc6-compat git
+
 WORKDIR /usr/src/app
 
-COPY package*.json ./
+COPY . /usr/src/app
 
 RUN npm install
-
-COPY . .
 
 RUN npm run build
 
