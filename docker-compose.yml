@@ -42,8 +42,6 @@ services:
     environment:
       PGADMIN_DEFAULT_EMAIL: admin@admin.com
       PGADMIN_DEFAULT_PASSWORD: postgres
-    depends_on:
-      - db
 
 volumes:
   caddy_data:
