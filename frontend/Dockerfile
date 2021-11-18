@@ -10,6 +10,8 @@ WORKDIR /usr/src/app
 
 COPY . /usr/src/app
 
+RUN npm install -g serve
+
 RUN npm install
 
 RUN npm run build
