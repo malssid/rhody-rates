@@ -10,9 +10,9 @@ WORKDIR /usr/src/app
 
 COPY . /usr/src/app
 
-RUN yarn install
+RUN npm install
 
-RUN yarn run build
+RUN npm run build
 
 EXPOSE 3000
 
