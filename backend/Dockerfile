@@ -10,8 +10,8 @@ WORKDIR /usr/src/app
 
 COPY . /usr/src/app
 
-RUN npm install
+RUN yarn install
 
 EXPOSE 4000
 
-CMD ["npm", "start"]
+CMD ["yarn", "start"]
