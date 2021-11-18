@@ -7,5 +7,5 @@ api.rhodyrates.com {
 }
 
 db.rhodyrates.com {
-    reverse_proxy phppgadmin:8080
+    reverse_proxy pgadmin:5050
 }

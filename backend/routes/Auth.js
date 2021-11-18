@@ -1,5 +1,5 @@
 const express = require("express");
-const studentRouter = express.Router();
+const authRouter = express.Router();
 const passport = require("passport");
 const passportConfig = require("../passport");
 const JWT = require("jsonwebtoken");
@@ -17,7 +17,7 @@ const signToken = (userID) => {
   );
 };
 
-studentRouter.post("/signup", async (req, res) => {
+authRouter.post("/signup", async (req, res) => {
   const { username, password, major, year } = req.body;
   try {
     const user = await db("student").where({ username: username });
@@ -46,7 +46,7 @@ studentRouter.post("/signup", async (req, res) => {
   }
 });
 
-studentRouter.post(
+authRouter.post(
   "/signin",
   passport.authenticate("local", { session: false }),
   (req, res) => {
@@ -59,7 +59,7 @@ studentRouter.post(
   }
 );
 
-studentRouter.get(
+authRouter.get(
   "/signout",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
@@ -68,7 +68,7 @@ studentRouter.get(
   }
 );
 
-studentRouter.get(
+authRouter.get(
   "/authenticated",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
@@ -77,4 +77,4 @@ studentRouter.get(
   }
 );
 
-module.exports = studentRouter;
+module.exports = authRouter;

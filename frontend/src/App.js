@@ -7,25 +7,30 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import PrivateRoute from "./CustomRoutes/PrivateRoute";
 import AuthProvider from "./contexts/AuthContext";
 import Navbar from "./components/Navbar";
+import { QueryClient, QueryClientProvider } from "react-query";
+
+const queryClient = new QueryClient();
 
 function App() {
   return (
     <ChakraProvider theme={theme}>
       <Router>
         <AuthProvider>
-          <Navbar />
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <PrivateRoute>
-                  <Home />
-                </PrivateRoute>
-              }
-            />
-            <Route path="/signin" element={<Signin />} />
-            <Route path="/signup" element={<Signup />} />
-          </Routes>
+          <QueryClientProvider client={queryClient}>
+            <Navbar />
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <PrivateRoute>
+                    <Home />
+                  </PrivateRoute>
+                }
+              />
+              <Route path="/signin" element={<Signin />} />
+              <Route path="/signup" element={<Signup />} />
+            </Routes>
+          </QueryClientProvider>
         </AuthProvider>
       </Router>
     </ChakraProvider>

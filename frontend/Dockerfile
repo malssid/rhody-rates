@@ -1,16 +1,15 @@
 FROM node:16-alpine
 
-RUN mkdir -p /usr/src/app
-
-ENV PORT 3000
-
-RUN apk add --no-cache libc6-compat git
-
 WORKDIR /usr/src/app
 
-COPY . /usr/src/app
+COPY package*.json ./
 
-RUN yarn install
+RUN npm install
+
+COPY . .
+
+RUN npm run build
 
 EXPOSE 3000
-CMD ["yarn", "start"]
+
+CMD ["serve", "-s", "build", "-l", "3000"]

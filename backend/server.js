@@ -1,7 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
-const studentRouter = require("./routes/Auth");
+const authRouter = require("./routes/Auth");
 const courseRouter = require("./routes/Course");
 const passport = require("passport");
 const cookieParser = require("cookie-parser");
@@ -20,9 +20,9 @@ app.use(cookieParser());
 
 app.use(express.urlencoded({ extended: true }));
 
-app.use("/auth", studentRouter);
+app.use("/", courseRouter);
 
-app.use("/course", courseRouter);
+app.use("/auth", authRouter);
 
 app.listen(PORT, () => {
   console.log("Server started on http://localhost:4000");
