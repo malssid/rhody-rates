@@ -110,6 +110,7 @@ export default function Signin() {
                       setPassword(e.target.value);
                     }}
                     type="password"
+                    
                     _focus={{
                       bg: "gray.700",
                       outline: "none",

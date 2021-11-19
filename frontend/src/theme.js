@@ -12,7 +12,6 @@ const theme = extendTheme({
   //     }
   //   }
   // },
-  
   styles: {
     global: {
       body: {
@@ -30,6 +29,8 @@ const theme = extendTheme({
       }
     },
   },
+  initialColorMode: "dark",
+  useSystemColorMode: false,
 });
 
 export default theme;
