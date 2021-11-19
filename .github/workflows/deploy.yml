@@ -27,4 +27,4 @@ jobs:
           USERNAME: ${{ secrets.SSH_USER }}
           PORT: ${{ secrets.SSH_PORT }}
           KEY: ${{ secrets.SSH_KEY }}
-          script: "cd rhody-rates; docker-compose up -d --build"
+          script: "cd rhody-rates; docker-compose down; docker-compose up -d --build"
