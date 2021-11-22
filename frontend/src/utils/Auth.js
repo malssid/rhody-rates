@@ -11,8 +11,7 @@ const Auth = {
         },
       }
     );
-    const data = await response.json();
-    return data;
+    return await response.json();
   },
   signUp: async (user) => {
     const response = await fetch(
@@ -35,8 +34,7 @@ const Auth = {
         credentials: "include",
       }
     );
-    const data = await response.json();
-    return data;
+    return await response.json();
   },
   isAuthenticated: async () => {
     const response = await fetch(

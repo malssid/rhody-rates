@@ -8,6 +8,7 @@ import PrivateRoute from "./CustomRoutes/PrivateRoute";
 import AuthProvider from "./contexts/AuthContext";
 import Navbar from "./components/Navbar";
 import { QueryClient, QueryClientProvider } from "react-query";
+import "./index.css";
 
 const queryClient = new QueryClient();
 
@@ -18,18 +19,20 @@ function App() {
         <AuthProvider>
           <QueryClientProvider client={queryClient}>
             <Navbar />
-            <Routes>
-              <Route
-                path="/"
-                element={
-                  <PrivateRoute>
-                    <Home />
-                  </PrivateRoute>
-                }
-              />
-              <Route path="/signin" element={<Signin />} />
-              <Route path="/signup" element={<Signup />} />
-            </Routes>
+            
+              <Routes>
+                <Route
+                  path="/"
+                  element={
+                    <PrivateRoute>
+                      <Home />
+                    </PrivateRoute>
+                  }
+                />
+                <Route path="/signin" element={<Signin />} />
+                <Route path="/signup" element={<Signup />} />
+              </Routes>
+            
           </QueryClientProvider>
         </AuthProvider>
       </Router>

@@ -26,7 +26,7 @@ export default function Signin() {
   const [loading, setLoading] = useState(false);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const {setUser, setIsAuthenticated} = useAuth();
+  const { setUser, setIsAuthenticated } = useAuth();
   const toast = useToast();
   let navigate = useNavigate();
 
@@ -95,11 +95,11 @@ export default function Signin() {
                       setUsername(e.target.value);
                     }}
                     type="text"
-                    _focus={{
-                      bg: "gray.700",
-                      outline: "none",
-                    }}
+                    bg="gray.900"
                     color="white"
+                    borderColor="gray.600"
+                    _hover={{ borderColor: "gray.600" }}
+                    _focus={{ borderColor: "gray.600", bg:"gray.800" }}
                   />
                 </FormControl>
                 <FormControl id="password" isRequired>
@@ -110,12 +110,11 @@ export default function Signin() {
                       setPassword(e.target.value);
                     }}
                     type="password"
-                    
-                    _focus={{
-                      bg: "gray.700",
-                      outline: "none",
-                    }}
+                    bg="gray.900"
                     color="white"
+                    borderColor="gray.600"
+                    _hover={{ borderColor: "gray.600" }}
+                    _focus={{ borderColor: "gray.600", bg:"gray.800" }}
                   />
                 </FormControl>
                 <Button

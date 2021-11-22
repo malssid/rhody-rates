@@ -19,12 +19,18 @@ courseRouter.get(
   "/courses",
   passport.authenticate("jwt", { session: false }),
   async (req, res) => {
-    const { page } = req.query;
+    const { page, keyword } = req.query;
 
-    const courses = await db("course").orderBy('id').paginate({
-      perPage: 10,
-      currentPage: page,
-    });
+    const courses = await db("course")
+      .whereRaw("subject ILIKE ?", [`%${keyword}%`])
+      .orWhereRaw("long_title ILIKE ?", [`%${keyword}%`])
+      .orderBy("id")
+      .paginate({
+        perPage: 10,
+        currentPage: page,
+        isLengthAware: true,
+      });
+
     res.json(courses);
   }
 );

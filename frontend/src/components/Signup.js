@@ -199,11 +199,11 @@ export default function Signup() {
                       setUsername(e.target.value);
                     }}
                     type="text"
-                    _focus={{
-                      bg: "gray.700",
-                      outline: "none",
-                    }}
+                    bg="gray.900"
                     color="white"
+                    borderColor="gray.600"
+                    _hover={{ borderColor: "gray.600" }}
+                    _focus={{ borderColor: "gray.600", bg:"gray.800" }}
                   />
                 </FormControl>
                 <FormControl id="password" isRequired>
@@ -214,11 +214,11 @@ export default function Signup() {
                       setPassword(e.target.value);
                     }}
                     type="password"
-                    _focus={{
-                      bg: "gray.700",
-                      outline: "none",
-                    }}
+                    bg="gray.900"
                     color="white"
+                    borderColor="gray.600"
+                    _hover={{ borderColor: "gray.600" }}
+                    _focus={{ borderColor: "gray.600", bg:"gray.800" }}
                   />
                 </FormControl>
                 <FormControl id="confirmpassword" isRequired>
@@ -229,11 +229,11 @@ export default function Signup() {
                       setConfirmPassword(e.target.value);
                     }}
                     type="password"
-                    _focus={{
-                      bg: "gray.700",
-                      outline: "none",
-                    }}
+                    bg="gray.900"
                     color="white"
+                    borderColor="gray.600"
+                    _hover={{ borderColor: "gray.600" }}
+                    _focus={{ borderColor: "gray.600", bg:"gray.800" }}
                   />
                 </FormControl>
                 <FormControl id="major" isRequired>
@@ -241,12 +241,11 @@ export default function Signup() {
                   <Select
                     value={major}
                     onChange={(e) => setMajor(e.target.value)}
-                    _focus={{
-                      bg: "gray.700",
-                      outline: "none",
-                    }}
-                    fontWeight="medium"
+                    bg="gray.900"
                     color="white"
+                    borderColor="gray.600"
+                    _hover={{ borderColor: "gray.600" }}
+                    _focus={{ borderColor: "gray.600", bg:"gray.800" }}
                   >
                     {majors.map((major) => {
                       return (
@@ -265,12 +264,11 @@ export default function Signup() {
                   <Select
                     value={year}
                     onChange={(e) => setYear(e.target.value)}
-                    _focus={{
-                      bg: "gray.700",
-                      outline: "none",
-                    }}
-                    fontWeight="medium"
+                    bg="gray.900"
                     color="white"
+                    borderColor="gray.600"
+                    _hover={{ borderColor: "gray.600" }}
+                    _focus={{ borderColor: "gray.600", bg:"gray.800" }}
                   >
                     <option
                       style={{ backgroundColor: "#2d3440" }}

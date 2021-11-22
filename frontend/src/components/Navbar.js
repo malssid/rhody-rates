@@ -39,7 +39,13 @@ export default function Navbar() {
             RhodyRates
           </Heading>
         </HStack>
-        <Button bg="gray.700" onClick={handleSignOut}>
+        <Button
+          bg="gray.400"
+          color="gray.900"
+          size="sm"
+          _hover={{ bg: "gray.200" }}
+          onClick={handleSignOut}
+        >
           Sign Out
         </Button>
       </Flex>

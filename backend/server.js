@@ -5,6 +5,7 @@ const authRouter = require("./routes/Auth");
 const courseRouter = require("./routes/Course");
 const passport = require("passport");
 const cookieParser = require("cookie-parser");
+const studentRouter = require("./routes/Student");
 
 const PORT = process.env.PORT || 4000;
 
@@ -23,6 +24,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/", courseRouter);
 
 app.use("/auth", authRouter);
+
+app.use("/student", studentRouter);
 
 app.listen(PORT, () => {
   console.log("Server started on http://localhost:4000");
