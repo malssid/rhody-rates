@@ -1,18 +1,22 @@
-import { Flex, Heading, Text, VStack, Box, Input } from "@chakra-ui/react";
+import { Flex, Heading, Text, VStack, Box, Input, Kbd } from "@chakra-ui/react";
 import Student from "../utils/Student";
 import { useQuery } from "react-query";
 
 export default function Header({ setKeyword }) {
-  const { isLoading, error, data } = useQuery("profile", Student.getProfile, {
-    refetchOnWindowFocus: false,
-  });
+  const { isLoading, error, data } = useQuery("profile", Student.getProfile);
+
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      setKeyword(e.target.value);
+    }
+  };
 
   return (
     <Flex
       bg="gray.400"
       color="gray.900"
       mt={6}
-      w="80%"
+      w="85%"
       mx={10}
       direction={["column", "row"]}
       justifyContent={{ sm: "center", md: "space-around" }}
@@ -20,7 +24,7 @@ export default function Header({ setKeyword }) {
       borderRadius="md"
       shadow="lg"
     >
-      <VStack mb={{ sm: 6, md: 0 }}>
+      <VStack mb={[4, 0]} textAlign="center">
         <Heading fontWeight="600" size="lg">
           Search
         </Heading>
@@ -31,8 +35,11 @@ export default function Header({ setKeyword }) {
           borderColor="gray.500"
           _hover={{ borderColor: "gray.500" }}
           _focus={{ borderColor: "gray.500", bg: "gray.100" }}
-          onChange={(e) => setKeyword(e.target.value)}
+          onKeyPress={handleKeyPress}
         />
+        <Text>
+          Press <Kbd>enter</Kbd> to filter results by keyword
+        </Text>
       </VStack>
       <VStack>
         <Heading fontWeight="600" size="lg">

@@ -5,17 +5,6 @@ const passportConfig = require("../passport");
 const db = require("../dbConnect");
 
 courseRouter.get(
-  "/likes",
-  passport.authenticate("jwt", { session: false }),
-  async (req, res) => {
-    const likes = await db("student")
-      .where({ id: req.user.id })
-      .select("likes");
-    res.json(likes[0]);
-  }
-);
-
-courseRouter.get(
   "/courses",
   passport.authenticate("jwt", { session: false }),
   async (req, res) => {
