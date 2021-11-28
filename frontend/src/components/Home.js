@@ -1,20 +1,28 @@
 import { useInfiniteQuery, useQuery } from "react-query";
 import Course from "../utils/Course";
 import Student from "../utils/Student";
-import { Flex, Heading, Box, Wrap, WrapItem } from "@chakra-ui/react";
+import { Flex, Heading, Box, Wrap, WrapItem, Button } from "@chakra-ui/react";
 import InfiniteScroll from "react-infinite-scroller";
 import CourseCard from "./CourseCard";
 import Header from "./Header";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Home() {
   const [keyword, setKeyword] = useState("");
+  const [ratings, setRatings] = useState({});
+
+  const {
+    isLoading: isLoadingRatings,
+    data: ratingsData,
+    refetch: refetchRatings,
+  } = useQuery("ratings", Student.getRatings);
 
   const {
     data: courseData,
     isLoading: isLoadingCourses,
     hasNextPage,
     fetchNextPage,
+    refetch: refetchCourses,
   } = useInfiniteQuery(
     ["courses", keyword],
     ({ pageParam = 1 }) => Course.getCourses(pageParam, keyword),
@@ -24,11 +32,6 @@ export default function Home() {
         return undefined;
       },
     }
-  );
-
-  const { isLoading: isLoadingRatings, data: ratingsData } = useQuery(
-    "ratings",
-    Student.getRatings
   );
 
   return (
@@ -47,11 +50,16 @@ export default function Home() {
               page.results.map((course) => (
                 <WrapItem key={course.id}>
                   <CourseCard
+                    id={course.id}
                     subject={course.subject}
                     catalog={course.catalog}
                     title={course.long_title}
+                    likes={course.likes}
+                    dislikes={course.dislikes}
                     liked={ratingsData?.likes.includes(course.id)}
                     disliked={ratingsData?.dislikes.includes(course.id)}
+                    refetchCourses={refetchCourses}
+                    refetchRatings={refetchRatings}
                   />
                 </WrapItem>
               ))

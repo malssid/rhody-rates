@@ -1,14 +1,71 @@
-import { Box, Flex, Heading, Text, Icon, Spacer } from "@chakra-ui/react";
-import Course from "../utils/Course";
+import {
+  Box,
+  Flex,
+  Heading,
+  Text,
+  Icon,
+  HStack,
+  useToast,
+} from "@chakra-ui/react";
+import Student from "../utils/Student";
 import { ImArrowUp, ImArrowDown } from "react-icons/im";
 
 export default function CourseCard({
+  id,
   subject,
   catalog,
   title,
+  likes,
+  dislikes,
   liked,
   disliked,
+  refetchCourses,
+  refetchRatings,
 }) {
+  const toast = useToast();
+
+  const handleLike = async () => {
+    const { data, status } = await Student.rate(id, "like");
+    if (status === 200) {
+      toast({
+        title: data.message,
+        status: "success",
+        isClosable: true,
+        position: "top",
+      });
+      refetchCourses();
+      refetchRatings();
+    } else {
+      toast({
+        title: data.message,
+        status: "error",
+        isClosable: true,
+        position: "top",
+      });
+    }
+  };
+
+  const handleDislike = async () => {
+    const { data, status } = await Student.rate(id, "dislike");
+    if (status === 200) {
+      toast({
+        title: data.message,
+        status: "success",
+        isClosable: true,
+        position: "top",
+      });
+      refetchCourses();
+      refetchRatings();
+    } else {
+      toast({
+        title: data.message,
+        status: "error",
+        isClosable: true,
+        position: "top",
+      });
+    }
+  };
+
   return (
     <>
       <Box
@@ -20,20 +77,28 @@ export default function CourseCard({
         p={4}
       >
         <Flex justifyContent="space-between">
-          <Icon
-            cursor="pointer"
-            as={ImArrowUp}
-            color={liked ? "#1da840" : "gray.400"}
-            _hover={{ color: "gray.500", transitionDuration: "0.2s" }}
-            fontSize="20px"
-          />
-          <Icon
-            cursor="pointer"
-            as={ImArrowDown}
-            color={disliked ? "#b80003" : "gray.400"}
-            _hover={{ color: "gray.500", transitionDuration: "0.2s" }}
-            fontSize="20px"
-          />
+          <HStack>
+            <Icon
+              cursor="pointer"
+              as={ImArrowUp}
+              color={liked ? "#1da840" : "gray.400"}
+              _hover={{ color: "gray.500", transitionDuration: "0.2s" }}
+              fontSize="20px"
+              onClick={handleLike}
+            />
+            <Text color="gray.200">{likes}</Text>
+          </HStack>
+          <HStack>
+            <Text color="gray.200">{dislikes}</Text>
+            <Icon
+              cursor="pointer"
+              as={ImArrowDown}
+              color={disliked ? "#b80003" : "gray.400"}
+              _hover={{ color: "gray.500", transitionDuration: "0.2s" }}
+              fontSize="20px"
+              onClick={handleDislike}
+            />
+          </HStack>
         </Flex>
         <Flex justify="center" align="center" direction="column">
           <Heading color="gray.200">

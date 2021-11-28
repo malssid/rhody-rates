@@ -182,7 +182,7 @@ export default function Signup() {
             p={6}
           >
             <Center>
-              <HStack mb={4}>
+              <HStack mb={4} cursor="default">
                 <Icon color="blue.400" fontSize={32} as={GiBigWave} />
                 <Heading color="#abd7ff" size="lg">
                   RhodyRates

@@ -33,7 +33,7 @@ export default function Navbar() {
   return isAuthenticated ? (
     <>
       <Flex px={10} pt={5} justify="space-between" align="center">
-        <HStack>
+        <HStack cursor="default">
           <Icon color="blue.400" fontSize={32} as={GiBigWave} />
           <Heading color="#abd7ff" size="lg">
             RhodyRates

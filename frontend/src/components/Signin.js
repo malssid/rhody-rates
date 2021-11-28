@@ -38,7 +38,7 @@ export default function Signin() {
       const { isAuthenticated, user } = data;
       if (isAuthenticated) {
         toast({
-          title: "Successfully Signed In",
+          title: "Successfully signed in",
           status: "success",
           isClosable: true,
           position: "top",
@@ -50,7 +50,7 @@ export default function Signin() {
       }
     } catch (err) {
       toast({
-        title: "Invalid Credentials",
+        title: "Invalid credentials",
         status: "error",
         isClosable: true,
         position: "top",
@@ -78,7 +78,7 @@ export default function Signin() {
             p={6}
           >
             <Center>
-              <HStack mb={4}>
+              <HStack mb={4} cursor="default">
                 <Icon color="blue.400" fontSize={32} as={GiBigWave} />
                 <Heading color="#abd7ff" size="lg">
                   RhodyRates
