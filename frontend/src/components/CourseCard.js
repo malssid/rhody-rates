@@ -33,8 +33,8 @@ export default function CourseCard({
         isClosable: true,
         position: "top",
       });
-      refetchCourses();
       refetchRatings();
+      refetchCourses();
     } else {
       toast({
         title: data.message,
@@ -54,8 +54,8 @@ export default function CourseCard({
         isClosable: true,
         position: "top",
       });
-      refetchCourses();
       refetchRatings();
+      refetchCourses();
     } else {
       toast({
         title: data.message,
