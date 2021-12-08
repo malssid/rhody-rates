@@ -5,6 +5,7 @@ import {
   HStack,
   useToast,
   Button,
+  Spacer
 } from "@chakra-ui/react";
 import { useAuth } from "../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
@@ -32,16 +33,17 @@ export default function Navbar() {
   };
   return isAuthenticated ? (
     <>
-      <Flex px={10} pt={5} justify="space-between" align="center">
+      <Flex px={6} pt={5} align="center">
         <HStack cursor="default">
           <Icon color="blue.400" fontSize={32} as={GiBigWave} />
           <Heading color="#abd7ff" size="lg">
             RhodyRates
           </Heading>
         </HStack>
+        <Spacer />
         <Button
-          bg="gray.400"
-          color="gray.900"
+          bg="gray.300"
+          color="gray.800"
           size="sm"
           _hover={{ bg: "gray.200" }}
           onClick={handleSignOut}

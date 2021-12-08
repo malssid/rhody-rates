@@ -35,10 +35,10 @@ export default function Home() {
   );
 
   return (
-    <Flex direction="column" justify="center" align="center">
+    <Flex direction="column" justify="center" align="center" >
       <Header setKeyword={setKeyword} />
       <div
-        style={{ height: "74vh", overflowY: "overlay", overflowX: "hidden" }}
+        style={{ height: "90vh", overflowY: "overlay", overflowX: "hidden" }}
       >
         <InfiniteScroll
           hasMore={hasNextPage}
@@ -53,7 +53,12 @@ export default function Home() {
                     id={course.id}
                     subject={course.subject}
                     catalog={course.catalog}
+                    desc={course.descr}
                     title={course.long_title}
+                    formalSubject={course.formaldesc}
+                    college={course.college_name}
+                    minCredits={course.min_units}
+                    maxCredits={course.max_units}
                     likes={course.likes}
                     dislikes={course.dislikes}
                     liked={ratingsData?.likes.includes(course.id)}
