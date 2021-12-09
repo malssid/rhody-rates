@@ -24,7 +24,6 @@ export default function Header({ setKeyword }) {
   const { isLoading, error, data } = useQuery("profile", Student.getProfile);
 
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const searchRef = useRef();
 
   const handleSearch = (e) => {
     if (e.key === "Enter") {
@@ -47,8 +46,8 @@ export default function Header({ setKeyword }) {
         isOpen={isOpen}
         placement="left"
         onClose={onClose}
-        initialFocusRef={searchRef}
         returnFocusOnClose={false}
+        autoFocus={false}
       >
         <DrawerOverlay />
         <DrawerContent bg="gray.900">
@@ -65,7 +64,6 @@ export default function Header({ setKeyword }) {
                 Search
               </Heading>
               <Input
-                ref={searchRef}
                 w={{ sm: 60, md: "100%" }}
                 bg="gray.900"
                 color="white"

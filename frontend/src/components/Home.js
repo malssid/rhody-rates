@@ -5,7 +5,8 @@ import { Flex, Heading, Box, Wrap, WrapItem, Button } from "@chakra-ui/react";
 import InfiniteScroll from "react-infinite-scroller";
 import CourseCard from "./CourseCard";
 import Header from "./Header";
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import Loading from "./Loading";
 
 export default function Home() {
   const [keyword, setKeyword] = useState("");
@@ -33,12 +34,14 @@ export default function Home() {
       },
     }
   );
-
-  return (
-    <Flex direction="column" justify="center" align="center" >
+  
+  return isLoadingCourses || isLoadingCourses ? (
+    <Loading />
+  ) : (
+    <Flex direction="column" justify="center" align="center">
       <Header setKeyword={setKeyword} />
       <div
-        style={{ height: "90vh", overflowY: "overlay", overflowX: "hidden" }}
+        style={{ height: "87vh", overflowY: "overlay", overflowX: "hidden" }}
       >
         <InfiniteScroll
           hasMore={hasNextPage}

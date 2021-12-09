@@ -89,6 +89,7 @@ export default function CourseCard({
       <Modal
         size="lg"
         autoFocus={false}
+        returnFocusOnClose
         isOpen={isOpen}
         onClose={onClose}
         isCentered
