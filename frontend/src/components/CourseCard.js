@@ -120,18 +120,29 @@ export default function CourseCard({
                 </Box>{" "}
                 {desc}
               </Text>
-              <Text color="gray.800">
-                <Box color="black" as="span" fontWeight="500">
-                  Min Credits:
-                </Box>{" "}
-                {minCredits}
-              </Text>
-              <Text color="gray.800">
-                <Box color="black" as="span" fontWeight="500">
-                  Max Credits:
-                </Box>{" "}
-                {maxCredits}
-              </Text>
+              {minCredits !== maxCredits ? (
+                <>
+                  <Text color="gray.800">
+                    <Box color="black" as="span" fontWeight="500">
+                      Min Credits:
+                    </Box>{" "}
+                    {minCredits}
+                  </Text>
+                  <Text color="gray.800">
+                    <Box color="black" as="span" fontWeight="500">
+                      Max Credits:
+                    </Box>{" "}
+                    {maxCredits}
+                  </Text>
+                </>
+              ) : (
+                <Text color="gray.800">
+                  <Box color="black" as="span" fontWeight="500">
+                    Credits:
+                  </Box>{" "}
+                  {maxCredits}
+                </Text>
+              )}
             </VStack>
           </ModalBody>
         </ModalContent>
