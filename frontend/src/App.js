@@ -7,7 +7,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import PrivateRoute from "./CustomRoutes/PrivateRoute";
 import AuthRoute from "./CustomRoutes/AuthRoute";
 import AuthProvider from "./contexts/AuthContext";
-import Navbar from "./components/Navbar";
 import { QueryClient, QueryClientProvider } from "react-query";
 import "./index.css";
 

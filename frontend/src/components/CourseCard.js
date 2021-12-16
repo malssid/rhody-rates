@@ -10,17 +10,14 @@ import {
   ModalOverlay,
   ModalContent,
   ModalHeader,
-  ModalFooter,
   ModalBody,
   ModalCloseButton,
   useDisclosure,
-  Button,
   VStack,
 } from "@chakra-ui/react";
 import { InfoIcon } from "@chakra-ui/icons";
 import Student from "../utils/Student";
 import { ImArrowUp, ImArrowDown } from "react-icons/im";
-import Course from "../utils/Course";
 
 export default function CourseCard({
   id,

@@ -10,7 +10,6 @@ import Loading from "./Loading";
 
 export default function Home() {
   const [keyword, setKeyword] = useState("");
-  const [ratings, setRatings] = useState({});
 
   const {
     isLoading: isLoadingRatings,

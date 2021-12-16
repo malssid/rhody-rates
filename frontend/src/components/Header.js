@@ -1,5 +1,4 @@
 import {
-  Flex,
   Heading,
   Text,
   VStack,
@@ -8,8 +7,6 @@ import {
   Kbd,
   Drawer,
   DrawerBody,
-  DrawerFooter,
-  DrawerHeader,
   DrawerOverlay,
   DrawerContent,
   DrawerCloseButton,
@@ -20,7 +17,6 @@ import {
 import Student from "../utils/Student";
 import { useQuery } from "react-query";
 import { useNavigate } from "react-router-dom";
-import { useRef } from "react";
 import Navbar from "./Navbar";
 import Auth from "../utils/Auth";
 import { useAuth } from "../contexts/AuthContext";

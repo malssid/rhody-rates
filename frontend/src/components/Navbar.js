@@ -4,7 +4,6 @@ import {
   Icon,
   HStack,
   useToast,
-  Button,
   Spacer,
 } from "@chakra-ui/react";
 import { useAuth } from "../contexts/AuthContext";
@@ -14,8 +13,6 @@ import { HamburgerIcon } from "@chakra-ui/icons";
 
 export default function Navbar({ onOpen }) {
   const { setIsAuthenticated, isAuthenticated, setUser } = useAuth();
-  const toast = useToast();
-  const navigate = useNavigate();
 
   return isAuthenticated ? (
     <>
