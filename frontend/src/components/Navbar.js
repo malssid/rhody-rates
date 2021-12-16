@@ -7,7 +7,6 @@ import {
   Spacer,
 } from "@chakra-ui/react";
 import { useAuth } from "../contexts/AuthContext";
-import { useNavigate } from "react-router-dom";
 import { GiBigWave } from "react-icons/gi";
 import { HamburgerIcon } from "@chakra-ui/icons";
 

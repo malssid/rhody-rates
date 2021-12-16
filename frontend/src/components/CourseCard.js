@@ -94,7 +94,7 @@ export default function CourseCard({
         <ModalOverlay />
         <ModalContent
           sx={{
-            background: "rgba( 206, 206, 255, 0.3 )",
+            background: "rgba( 188, 188, 221, 0.32 )",
             boxShadow: "0 8px 32px 0 rgba(31, 38, 135, 0.15)",
             backdropFilter: "blur(8px)",
           }}
@@ -152,7 +152,7 @@ export default function CourseCard({
       </Modal>
       <Box
         sx={{
-          background: "rgba( 86, 86, 150, 0.65 )",
+          background: "rgba( 131, 130, 217, 0.45 )",
           boxShadow: "0 8px 32px 0 rgba(31, 38, 135, 0.25)",
           backdropFilter: "blur(4px)",
         }}
@@ -169,7 +169,7 @@ export default function CourseCard({
               cursor="pointer"
               as={ImArrowUp}
               color={liked ? "#1da840" : "gray.500"}
-              _hover={{ color: "gray.600", transitionDuration: "0.2s" }}
+              _hover={{ color: "gray.400", transitionDuration: "0.2s" }}
               fontSize="20px"
               onClick={handleLike}
             />
@@ -185,7 +185,7 @@ export default function CourseCard({
               cursor="pointer"
               as={ImArrowDown}
               color={disliked ? "#b80003" : "gray.500"}
-              _hover={{ color: "gray.600", transitionDuration: "0.2s" }}
+              _hover={{ color: "gray.400", transitionDuration: "0.2s" }}
               fontSize="20px"
               onClick={handleDislike}
             />
@@ -193,10 +193,10 @@ export default function CourseCard({
         </Flex>
         <Icon
           as={InfoIcon}
-          _hover={{ color: "gray.700", transitionDuration: "0.2s" }}
-          color="gray.200"
+          _hover={{ color: "gray.200", transitionDuration: "0.2s" }}
+          color="gray.300"
           cursor="pointer"
-          fontSize="25px"
+          fontSize="22px"
           onClick={onOpen}
         />
         <Flex justify="center" align="center" direction="column">

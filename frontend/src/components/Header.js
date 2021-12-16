@@ -70,13 +70,13 @@ export default function Header({ setKeyword }) {
         <DrawerOverlay />
         <DrawerContent
           sx={{
-            background: "rgba( 188, 188, 221, 0.4 )",
+            background: "rgba( 188, 188, 221, 0.32 )",
             boxShadow: "0 8px 32px 0 rgba(31, 38, 135, 0.15)",
             backdropFilter: "blur(8px)",
           }}
           borderRightRadius="xl"
         >
-          <DrawerCloseButton color="gray.300" _hover={{ bg: "gray.800" }} />
+          <DrawerCloseButton color="gray.300" _hover={{ color: "gray.200" }} />
           <DrawerBody mt={6}>
             <VStack mb={12} textAlign="center">
               <Heading color="white" fontWeight="600" size="lg">
