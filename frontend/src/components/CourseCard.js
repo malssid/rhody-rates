@@ -95,49 +95,55 @@ export default function CourseCard({
         isCentered
       >
         <ModalOverlay />
-        <ModalContent bg="gray.200">
-          <ModalHeader textAlign="center" fontSize="35px">
+        <ModalContent
+          sx={{
+            background: "rgba( 206, 206, 255, 0.3 )",
+            boxShadow: "0 8px 32px 0 rgba(31, 38, 135, 0.15)",
+            backdropFilter: "blur(8px)",
+          }}
+        >
+          <ModalHeader color="white" textAlign="center" fontSize="35px">
             {subject} {catalog}
           </ModalHeader>
           <ModalCloseButton />
           <ModalBody pb={6}>
             <VStack spacing={2} textAlign="center">
-              <Text color="gray.800">
-                <Box color="black" as="span" fontWeight="500">
+              <Text color="gray.100">
+                <Box color="white" as="span" fontWeight="500">
                   Subject:
                 </Box>{" "}
                 {formalSubject}
               </Text>
-              <Text color="gray.800">
-                <Box color="black" as="span" fontWeight="500">
+              <Text color="gray.200">
+                <Box color="white" as="span" fontWeight="500">
                   College:
                 </Box>{" "}
                 {college}
               </Text>
-              <Text color="gray.800">
-                <Box color="black" as="span" fontWeight="500">
+              <Text color="gray.200">
+                <Box color="white" as="span" fontWeight="500">
                   Description:
                 </Box>{" "}
                 {desc}
               </Text>
               {minCredits !== maxCredits ? (
                 <>
-                  <Text color="gray.800">
-                    <Box color="black" as="span" fontWeight="500">
+                  <Text color="gray.200">
+                    <Box color="white" as="span" fontWeight="500">
                       Min Credits:
                     </Box>{" "}
                     {minCredits}
                   </Text>
-                  <Text color="gray.800">
-                    <Box color="black" as="span" fontWeight="500">
+                  <Text color="gray.200">
+                    <Box color="white" as="span" fontWeight="500">
                       Max Credits:
                     </Box>{" "}
                     {maxCredits}
                   </Text>
                 </>
               ) : (
-                <Text color="gray.800">
-                  <Box color="black" as="span" fontWeight="500">
+                <Text color="gray.200">
+                  <Box color="white" as="span" fontWeight="500">
                     Credits:
                   </Box>{" "}
                   {maxCredits}
@@ -148,36 +154,41 @@ export default function CourseCard({
         </ModalContent>
       </Modal>
       <Box
+        sx={{
+          background: "rgba( 86, 86, 150, 0.65 )",
+          boxShadow: "0 8px 32px 0 rgba(31, 38, 135, 0.25)",
+          backdropFilter: "blur(4px)",
+        }}
         borderRadius="md"
         textAlign="center"
-        bg="gray.200"
         w={["300px", "400px"]}
         h="170px"
         p={4}
+        m={2}
       >
         <Flex justifyContent="space-between">
           <HStack>
             <Icon
               cursor="pointer"
               as={ImArrowUp}
-              color={liked ? "#1da840" : "gray.600"}
-              _hover={{ color: "gray.700", transitionDuration: "0.2s" }}
+              color={liked ? "#1da840" : "gray.500"}
+              _hover={{ color: "gray.600", transitionDuration: "0.2s" }}
               fontSize="20px"
               onClick={handleLike}
             />
-            <Text color="gray.700" fontWeight="medium">
+            <Text color="gray.100" fontWeight="medium">
               {likes}
             </Text>
           </HStack>
           <HStack>
-            <Text color="gray.700" fontWeight="medium">
+            <Text color="gray.100" fontWeight="medium">
               {dislikes}
             </Text>
             <Icon
               cursor="pointer"
               as={ImArrowDown}
-              color={disliked ? "#b80003" : "gray.600"}
-              _hover={{ color: "gray.700", transitionDuration: "0.2s" }}
+              color={disliked ? "#b80003" : "gray.500"}
+              _hover={{ color: "gray.600", transitionDuration: "0.2s" }}
               fontSize="20px"
               onClick={handleDislike}
             />
@@ -186,16 +197,16 @@ export default function CourseCard({
         <Icon
           as={InfoIcon}
           _hover={{ color: "gray.700", transitionDuration: "0.2s" }}
-          color="gray.600"
+          color="gray.200"
           cursor="pointer"
           fontSize="25px"
           onClick={onOpen}
         />
         <Flex justify="center" align="center" direction="column">
-          <Heading color="black">
+          <Heading color="white">
             {subject} {catalog}
           </Heading>
-          <Text color="gray.800">{title}</Text>
+          <Text color="gray.100">{title}</Text>
         </Flex>
       </Box>
     </>

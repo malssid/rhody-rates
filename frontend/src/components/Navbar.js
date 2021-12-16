@@ -5,35 +5,29 @@ import {
   HStack,
   useToast,
   Button,
-  Spacer
+  Spacer,
 } from "@chakra-ui/react";
 import { useAuth } from "../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
-import Auth from "../utils/Auth";
 import { GiBigWave } from "react-icons/gi";
+import { HamburgerIcon } from "@chakra-ui/icons";
 
-export default function Navbar() {
+export default function Navbar({ onOpen }) {
   const { setIsAuthenticated, isAuthenticated, setUser } = useAuth();
   const toast = useToast();
   const navigate = useNavigate();
 
-  const handleSignOut = async () => {
-    const data = await Auth.signOut();
-    if (data.success) {
-      setUser(data.user);
-      setIsAuthenticated(false);
-      toast({
-        title: "Successfully Logged Out",
-        status: "success",
-        isClosable: true,
-        position: "top",
-      });
-      navigate("/");
-    }
-  };
   return isAuthenticated ? (
     <>
-      <Flex px={6} pt={5} align="center">
+      <Flex px={6} pt={5} align="center" mb={4}>
+        <HamburgerIcon
+          cursor="pointer"
+          color="gray.300"
+          _hover={{ color: "gray.200" }}
+          fontSize={28}
+          onClick={onOpen}
+        />
+        <Spacer />
         <HStack cursor="default">
           <Icon color="blue.400" fontSize={32} as={GiBigWave} />
           <Heading color="#abd7ff" size="lg">
@@ -41,15 +35,11 @@ export default function Navbar() {
           </Heading>
         </HStack>
         <Spacer />
-        <Button
-          bg="gray.300"
-          color="gray.800"
-          size="sm"
-          _hover={{ bg: "gray.200" }}
-          onClick={handleSignOut}
-        >
-          Sign Out
-        </Button>
+        <HamburgerIcon
+          color="gray.300"
+          fontSize={28}
+          visibility="hidden"
+        />
       </Flex>
     </>
   ) : null;

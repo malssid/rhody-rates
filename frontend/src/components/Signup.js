@@ -165,8 +165,8 @@ export default function Signup() {
 
   return (
     <>
-      <Flex height="100vh" my="auto" pb={12} align="center" justify="center">
-        <Stack align="center" spacing={4}>
+      <Flex height="100vh" my={[6, "auto"]} pb={12} align="center" justify="center">
+        <Stack align="center" spacing={[2, 4]}>
           <Text color="gray.300">
             Already have an account?{" "}
             <Link fontWeight="bold" as={RouterLink} to="/signin">
@@ -175,7 +175,11 @@ export default function Signup() {
           </Text>
           <Box
             rounded="lg"
-            bg="gray.900"
+            sx={{
+              background: "rgba( 43, 43, 95, 0.58 )",
+              boxShadow: "0 8px 32px 0 rgba(31, 38, 135, 0.15)",
+              backdropFilter: "blur(8px)",
+            }}
             shadow="lg"
             maxW="350px"
             minW="300px"
@@ -192,65 +196,61 @@ export default function Signup() {
             <form onSubmit={onSubmit}>
               <Stack align="center" spacing={6}>
                 <FormControl id="username" isRequired>
-                  <FormLabel color="gray.300">Username</FormLabel>
+                  <FormLabel color="gray.50">Username</FormLabel>
                   <Input
                     value={username}
                     onChange={(e) => {
                       setUsername(e.target.value);
                     }}
                     type="text"
-                    bg="gray.900"
-                    color="white"
-                    borderColor="gray.600"
-                    _hover={{ borderColor: "gray.600" }}
-                    _focus={{ borderColor: "gray.600", bg:"gray.800" }}
+                    bg="gray.400"
+                    color="black"
+                    border="none"
+                    _focus={{ bg: "gray.300", boxShadow: "xl" }}
                   />
                 </FormControl>
                 <FormControl id="password" isRequired>
-                  <FormLabel color="gray.300">Password</FormLabel>
+                  <FormLabel color="gray.50">Password</FormLabel>
                   <Input
                     value={password}
                     onChange={(e) => {
                       setPassword(e.target.value);
                     }}
                     type="password"
-                    bg="gray.900"
-                    color="white"
-                    borderColor="gray.600"
-                    _hover={{ borderColor: "gray.600" }}
-                    _focus={{ borderColor: "gray.600", bg:"gray.800" }}
+                    bg="gray.400"
+                    color="black"
+                    border="none"
+                    _focus={{ bg: "gray.300", boxShadow: "xl" }}
                   />
                 </FormControl>
                 <FormControl id="confirmpassword" isRequired>
-                  <FormLabel color="gray.300">Confirm Password</FormLabel>
+                  <FormLabel color="gray.50">Confirm Password</FormLabel>
                   <Input
                     value={confirmPassword}
                     onChange={(e) => {
                       setConfirmPassword(e.target.value);
                     }}
                     type="password"
-                    bg="gray.900"
-                    color="white"
-                    borderColor="gray.600"
-                    _hover={{ borderColor: "gray.600" }}
-                    _focus={{ borderColor: "gray.600", bg:"gray.800" }}
+                    bg="gray.400"
+                    color="black"
+                    border="none"
+                    _focus={{ bg: "gray.300", boxShadow: "xl" }}
                   />
                 </FormControl>
                 <FormControl id="major" isRequired>
-                  <FormLabel color="gray.300">Select Major</FormLabel>
+                  <FormLabel color="gray.50">Select Major</FormLabel>
                   <Select
                     value={major}
                     onChange={(e) => setMajor(e.target.value)}
-                    bg="gray.900"
-                    color="white"
-                    borderColor="gray.600"
-                    _hover={{ borderColor: "gray.600" }}
-                    _focus={{ borderColor: "gray.600", bg:"gray.800" }}
+                    bg="gray.400"
+                    color="black"
+                    border="none"
+                    _focus={{ bg: "gray.300", boxShadow: "xl" }}
                   >
                     {majors.map((major) => {
                       return (
                         <option
-                          style={{ backgroundColor: "#2d3440" }}
+                          style={{ backgroundColor: "#bee0ec" }}
                           value={major}
                         >
                           {major}
@@ -260,46 +260,45 @@ export default function Signup() {
                   </Select>
                 </FormControl>
                 <FormControl id="year" isRequired>
-                  <FormLabel color="gray.300">Select Year</FormLabel>
+                  <FormLabel color="gray.50">Select Year</FormLabel>
                   <Select
                     value={year}
                     onChange={(e) => setYear(e.target.value)}
-                    bg="gray.900"
-                    color="white"
-                    borderColor="gray.600"
-                    _hover={{ borderColor: "gray.600" }}
-                    _focus={{ borderColor: "gray.600", bg:"gray.800" }}
+                    bg="gray.400"
+                    color="black"
+                    border="none"
+                    _focus={{ bg: "gray.300", boxShadow: "xl" }}
                   >
                     <option
-                      style={{ backgroundColor: "#2d3440" }}
+                      style={{ backgroundColor: "#bee0ec" }}
                       value="Freshman"
                     >
                       Freshman
                     </option>
                     ;
                     <option
-                      style={{ backgroundColor: "#2d3440" }}
+                      style={{ backgroundColor: "#bee0ec" }}
                       value="Sophomore"
                     >
                       Sophomore
                     </option>
                     ;
                     <option
-                      style={{ backgroundColor: "#2d3440" }}
+                      style={{ backgroundColor: "#bee0ec" }}
                       value="Junior"
                     >
                       Junior
                     </option>
                     ;
                     <option
-                      style={{ backgroundColor: "#2d3440" }}
+                      style={{ backgroundColor: "#bee0ec" }}
                       value="Senior"
                     >
                       Senior
                     </option>
                     ;
                     <option
-                      style={{ backgroundColor: "#2d3440" }}
+                      style={{ backgroundColor: "#bee0ec" }}
                       value="Senior+"
                     >
                       Senior+
@@ -312,10 +311,12 @@ export default function Signup() {
                   variant="solid"
                   isLoading={loading}
                   spinner={<BeatLoader size={10} />}
-                  bg="blue.700"
-                  color="white"
-                  _hover={{ bg: "blue.600" }}
+                  bg="blue.200"
+                  color="gray.800"
+                  boxShadow="xl"
+                  _hover={{ bg: "blue.100" }}
                   type="submit"
+                  _focus={{ border: "none" }}
                 >
                   {loading || "Sign Up"}
                 </Button>

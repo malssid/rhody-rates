@@ -71,8 +71,11 @@ export default function Signin() {
           </Text>
           <Box
             rounded="lg"
-            bg="gray.900"
-            shadow="lg"
+            sx={{
+              background: "rgba( 43, 43, 95, 0.58 )",
+              boxShadow: "0 8px 32px 0 rgba(31, 38, 135, 0.15)",
+              backdropFilter: "blur(8px)",
+            }}
             maxW="350px"
             minW="300px"
             p={6}
@@ -88,33 +91,31 @@ export default function Signin() {
             <form onSubmit={onSubmit}>
               <Stack align="center" spacing={6}>
                 <FormControl id="username" isRequired>
-                  <FormLabel color="gray.300">Username</FormLabel>
+                  <FormLabel color="gray.50">Username</FormLabel>
                   <Input
                     value={username}
                     onChange={(e) => {
                       setUsername(e.target.value);
                     }}
                     type="text"
-                    bg="gray.900"
-                    color="white"
-                    borderColor="gray.600"
-                    _hover={{ borderColor: "gray.600" }}
-                    _focus={{ borderColor: "gray.600", bg:"gray.800" }}
+                    bg="gray.400"
+                    color="black"
+                    border="none"
+                    _focus={{ bg: "gray.300", boxShadow:"xl" }}
                   />
                 </FormControl>
                 <FormControl id="password" isRequired>
-                  <FormLabel color="gray.300">Password</FormLabel>
+                  <FormLabel color="gray.50">Password</FormLabel>
                   <Input
                     value={password}
                     onChange={(e) => {
                       setPassword(e.target.value);
                     }}
                     type="password"
-                    bg="gray.900"
-                    color="white"
-                    borderColor="gray.600"
-                    _hover={{ borderColor: "gray.600" }}
-                    _focus={{ borderColor: "gray.600", bg:"gray.800" }}
+                    bg="gray.400"
+                    color="black"
+                    border="none"
+                    _focus={{ bg: "gray.300", boxShadow:"xl" }}
                   />
                 </FormControl>
                 <Button
@@ -122,10 +123,12 @@ export default function Signin() {
                   variant="solid"
                   isLoading={loading}
                   spinner={<BeatLoader size={10} />}
-                  bg="blue.700"
-                  color="white"
-                  _hover={{ bg: "blue.600" }}
+                  bg="blue.200"
+                  color="gray.800"
+                  boxShadow="xl"
+                  _hover={{bg:"blue.100"}}
                   type="submit"
+                  _focus={{ border:"none" }}
                 >
                   {loading || "Sign In"}
                 </Button>

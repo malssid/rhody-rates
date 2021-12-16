@@ -19,7 +19,6 @@ function App() {
       <Router>
         <AuthProvider>
           <QueryClientProvider client={queryClient}>
-            <Navbar />
             <Routes>
               <Route
                 path="/"
