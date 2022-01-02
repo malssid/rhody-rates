@@ -152,8 +152,8 @@ export default function CourseCard({
       </Modal>
       <Box
         sx={{
-          background: "rgba( 131, 130, 217, 0.45 )",
-          boxShadow: "0 8px 32px 0 rgba(31, 38, 135, 0.25)",
+          background: "rgba( 153, 153, 207, 0.3 )",
+          boxShadow: "0 8px 32px 0 rgba(31, 38, 135, 0.02)",
           backdropFilter: "blur(4px)",
         }}
         borderRadius="md"

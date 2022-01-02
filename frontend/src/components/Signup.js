@@ -177,7 +177,7 @@ export default function Signup() {
             rounded="lg"
             sx={{
               background: "rgba( 43, 43, 95, 0.58 )",
-              boxShadow: "0 8px 32px 0 rgba(31, 38, 135, 0.15)",
+              boxShadow: "0 8px 32px 0 rgba(31, 38, 135, 0.02)",
               backdropFilter: "blur(8px)",
             }}
             shadow="lg"

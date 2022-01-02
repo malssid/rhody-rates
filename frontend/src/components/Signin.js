@@ -62,7 +62,7 @@ export default function Signin() {
   return (
     <>
       <Flex height="100vh" my="auto" pb={12} align="center" justify="center">
-        <Stack align="center" spacing={4}>
+        <Stack align="center" spacing={2}>
           <Text color="gray.300">
             Need to create an account?{" "}
             <Link fontWeight="bold" as={RouterLink} to="/signup">
@@ -73,7 +73,7 @@ export default function Signin() {
             rounded="lg"
             sx={{
               background: "rgba( 43, 43, 95, 0.58 )",
-              boxShadow: "0 8px 32px 0 rgba(31, 38, 135, 0.15)",
+              boxShadow: "0 8px 32px 0 rgba(31, 38, 135, 0.02)",
               backdropFilter: "blur(8px)",
             }}
             maxW="350px"
@@ -101,7 +101,7 @@ export default function Signin() {
                     bg="gray.400"
                     color="black"
                     border="none"
-                    _focus={{ bg: "gray.300", boxShadow:"xl" }}
+                    _focus={{ bg: "gray.300", boxShadow: "xl" }}
                   />
                 </FormControl>
                 <FormControl id="password" isRequired>
@@ -115,7 +115,7 @@ export default function Signin() {
                     bg="gray.400"
                     color="black"
                     border="none"
-                    _focus={{ bg: "gray.300", boxShadow:"xl" }}
+                    _focus={{ bg: "gray.300", boxShadow: "xl" }}
                   />
                 </FormControl>
                 <Button
@@ -126,9 +126,9 @@ export default function Signin() {
                   bg="blue.200"
                   color="gray.800"
                   boxShadow="xl"
-                  _hover={{bg:"blue.100"}}
+                  _hover={{ bg: "blue.100" }}
                   type="submit"
-                  _focus={{ border:"none" }}
+                  _focus={{ border: "none" }}
                 >
                   {loading || "Sign In"}
                 </Button>

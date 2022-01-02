@@ -71,7 +71,7 @@ export default function Header({ setKeyword }) {
         <DrawerContent
           sx={{
             background: "rgba( 188, 188, 221, 0.32 )",
-            boxShadow: "0 8px 32px 0 rgba(31, 38, 135, 0.15)",
+            boxShadow: "0 8px 32px 0 rgba(31, 38, 135, 0.02)",
             backdropFilter: "blur(8px)",
           }}
           borderRightRadius="xl"
