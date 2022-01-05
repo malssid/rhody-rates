@@ -37,12 +37,6 @@ export default function Signin() {
       const data = await Auth.signIn({ username, password });
       const { isAuthenticated, user } = data;
       if (isAuthenticated) {
-        toast({
-          title: "Successfully signed in",
-          status: "success",
-          isClosable: true,
-          position: "top",
-        });
         setUser(user);
         setIsAuthenticated(isAuthenticated);
         setLoading(false);
@@ -63,7 +57,7 @@ export default function Signin() {
     <>
       <Flex height="100vh" my="auto" pb={12} align="center" justify="center">
         <Stack align="center" spacing={2}>
-          <Text color="gray.300">
+          <Text color="gray.600">
             Need to create an account?{" "}
             <Link fontWeight="bold" as={RouterLink} to="/signup">
               Click here
@@ -71,19 +65,16 @@ export default function Signin() {
           </Text>
           <Box
             rounded="lg"
-            sx={{
-              background: "rgba( 43, 43, 95, 0.58 )",
-              boxShadow: "0 8px 32px 0 rgba(31, 38, 135, 0.02)",
-              backdropFilter: "blur(8px)",
-            }}
+            bg="white"
             maxW="350px"
             minW="300px"
             p={6}
+            shadow="md"
           >
             <Center>
               <HStack mb={4} cursor="default">
-                <Icon color="blue.400" fontSize={32} as={GiBigWave} />
-                <Heading color="#abd7ff" size="lg">
+                <Icon color="blue.500" fontSize={32} as={GiBigWave} />
+                <Heading color="blue.800" size="lg">
                   RhodyRates
                 </Heading>
               </HStack>
@@ -91,31 +82,25 @@ export default function Signin() {
             <form onSubmit={onSubmit}>
               <Stack align="center" spacing={6}>
                 <FormControl id="username" isRequired>
-                  <FormLabel color="gray.50">Username</FormLabel>
+                  <FormLabel color="gray.500">Username</FormLabel>
                   <Input
                     value={username}
                     onChange={(e) => {
                       setUsername(e.target.value);
                     }}
                     type="text"
-                    bg="gray.400"
-                    color="black"
-                    border="none"
-                    _focus={{ bg: "gray.300", boxShadow: "xl" }}
+                    borderColor="gray.300"
                   />
                 </FormControl>
                 <FormControl id="password" isRequired>
-                  <FormLabel color="gray.50">Password</FormLabel>
+                  <FormLabel color="gray.500">Password</FormLabel>
                   <Input
                     value={password}
                     onChange={(e) => {
                       setPassword(e.target.value);
                     }}
                     type="password"
-                    bg="gray.400"
-                    color="black"
-                    border="none"
-                    _focus={{ bg: "gray.300", boxShadow: "xl" }}
+                    borderColor="gray.300"
                   />
                 </FormControl>
                 <Button
@@ -123,12 +108,10 @@ export default function Signin() {
                   variant="solid"
                   isLoading={loading}
                   spinner={<BeatLoader size={10} />}
-                  bg="blue.200"
-                  color="gray.800"
-                  boxShadow="xl"
-                  _hover={{ bg: "blue.100" }}
                   type="submit"
-                  _focus={{ border: "none" }}
+                  bg="blue.800"
+                  color="gray.200"
+                  _hover={{bg:"blue.700"}}
                 >
                   {loading || "Sign In"}
                 </Button>

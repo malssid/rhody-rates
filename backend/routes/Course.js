@@ -8,21 +8,34 @@ courseRouter.get(
   "/courses",
   passport.authenticate("jwt", { session: false }),
   async (req, res) => {
-    const { page, keyword } = req.query;
+    const { page, keyword, sort } = req.query;
     const trimmedKeyword = keyword.trim();
 
-    const courses = await db("course")
-      .whereRaw("subject ILIKE ?", [`%${trimmedKeyword}%`])
-      .orWhereRaw("long_title ILIKE ?", [`%${trimmedKeyword}%`])
-      .orWhereRaw("catalog ILIKE ?", [`%${trimmedKeyword}%`])
-      .orderBy("id")
-      .paginate({
-        perPage: 10,
-        currentPage: page,
-        isLengthAware: true,
-      });
-
-    res.json(courses);
+    if (sort != "") {
+      const courses = await db("course")
+        .whereRaw("subject ILIKE ?", [`%${trimmedKeyword}%`])
+        .orWhereRaw("long_title ILIKE ?", [`%${trimmedKeyword}%`])
+        .orWhereRaw("catalog ILIKE ?", [`%${trimmedKeyword}%`])
+        .orderBy(sort, 'desc')
+        .paginate({
+          perPage: 10,
+          currentPage: page,
+          isLengthAware: true,
+        });
+      res.json(courses);
+    } else {
+      const courses = await db("course")
+        .whereRaw("subject ILIKE ?", [`%${trimmedKeyword}%`])
+        .orWhereRaw("long_title ILIKE ?", [`%${trimmedKeyword}%`])
+        .orWhereRaw("catalog ILIKE ?", [`%${trimmedKeyword}%`])
+        .orderBy("id")
+        .paginate({
+          perPage: 10,
+          currentPage: page,
+          isLengthAware: true,
+        });
+      res.json(courses);
+    }
   }
 );
 

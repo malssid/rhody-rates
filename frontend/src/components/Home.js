@@ -10,6 +10,7 @@ import Loading from "./Loading";
 
 export default function Home() {
   const [keyword, setKeyword] = useState("");
+  const [sort, setSort] = useState("");
 
   const {
     isLoading: isLoadingRatings,
@@ -24,8 +25,8 @@ export default function Home() {
     fetchNextPage,
     refetch: refetchCourses,
   } = useInfiniteQuery(
-    ["courses", keyword],
-    ({ pageParam = 1 }) => Course.getCourses(pageParam, keyword),
+    ["courses", keyword, sort],
+    ({ pageParam = 1 }) => Course.getCourses(pageParam, keyword, sort),
     {
       getNextPageParam: (lastPage, pages) => {
         if (lastPage.nextPage < lastPage.totalPages) return lastPage.nextPage;
@@ -38,7 +39,7 @@ export default function Home() {
     <Loading />
   ) : (
     <>
-      <Header setKeyword={setKeyword} />
+      <Header setKeyword={setKeyword} setSort={setSort} sort={sort}/>
       <Flex direction="column" justify="center" align="center">
         <div
           style={{ height: "87vh", overflowY: "overlay", overflowX: "hidden" }}

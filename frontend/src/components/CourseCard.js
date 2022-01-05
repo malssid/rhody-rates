@@ -92,55 +92,49 @@ export default function CourseCard({
         isCentered
       >
         <ModalOverlay />
-        <ModalContent
-          sx={{
-            background: "rgba( 188, 188, 221, 0.32 )",
-            boxShadow: "0 8px 32px 0 rgba(31, 38, 135, 0.15)",
-            backdropFilter: "blur(8px)",
-          }}
-        >
-          <ModalHeader color="white" textAlign="center" fontSize="35px">
+        <ModalContent bg="gray.200">
+          <ModalHeader color="gray.800" textAlign="center" fontSize="35px">
             {subject} {catalog}
           </ModalHeader>
           <ModalCloseButton />
           <ModalBody pb={6}>
             <VStack spacing={2} textAlign="center">
-              <Text color="gray.100">
-                <Box color="white" as="span" fontWeight="500">
+              <Text color="gray.600">
+                <Box color="gray.700" as="span" fontWeight="500">
                   Subject:
                 </Box>{" "}
                 {formalSubject}
               </Text>
-              <Text color="gray.200">
-                <Box color="white" as="span" fontWeight="500">
+              <Text color="gray.600">
+                <Box color="gray.700" as="span" fontWeight="500">
                   College:
                 </Box>{" "}
                 {college}
               </Text>
-              <Text color="gray.200">
-                <Box color="white" as="span" fontWeight="500">
+              <Text color="gray.600">
+                <Box color="gray.700" as="span" fontWeight="500">
                   Description:
                 </Box>{" "}
                 {desc}
               </Text>
               {minCredits !== maxCredits ? (
                 <>
-                  <Text color="gray.200">
-                    <Box color="white" as="span" fontWeight="500">
+                  <Text color="gray.600">
+                    <Box color="gray.700" as="span" fontWeight="500">
                       Min Credits:
                     </Box>{" "}
                     {minCredits}
                   </Text>
-                  <Text color="gray.200">
-                    <Box color="white" as="span" fontWeight="500">
+                  <Text color="gray.600">
+                    <Box color="gray.700" as="span" fontWeight="500">
                       Max Credits:
                     </Box>{" "}
                     {maxCredits}
                   </Text>
                 </>
               ) : (
-                <Text color="gray.200">
-                  <Box color="white" as="span" fontWeight="500">
+                <Text color="gray.600">
+                  <Box color="gray.700" as="span" fontWeight="500">
                     Credits:
                   </Box>{" "}
                   {maxCredits}
@@ -151,17 +145,14 @@ export default function CourseCard({
         </ModalContent>
       </Modal>
       <Box
-        sx={{
-          background: "rgba( 153, 153, 207, 0.3 )",
-          boxShadow: "0 8px 32px 0 rgba(31, 38, 135, 0.02)",
-          backdropFilter: "blur(4px)",
-        }}
-        borderRadius="md"
+        bg="white"
+        borderRadius="lg"
         textAlign="center"
         w={["300px", "400px"]}
         h="170px"
         p={4}
         m={2}
+        shadow="md"
       >
         <Flex justifyContent="space-between">
           <HStack>
@@ -173,12 +164,12 @@ export default function CourseCard({
               fontSize="20px"
               onClick={handleLike}
             />
-            <Text color="gray.100" fontWeight="medium">
+            <Text color="gray.500" fontWeight="medium">
               {likes}
             </Text>
           </HStack>
           <HStack>
-            <Text color="gray.100" fontWeight="medium">
+            <Text color="gray.500" fontWeight="medium">
               {dislikes}
             </Text>
             <Icon
@@ -193,17 +184,17 @@ export default function CourseCard({
         </Flex>
         <Icon
           as={InfoIcon}
-          _hover={{ color: "gray.200", transitionDuration: "0.2s" }}
-          color="gray.300"
+          _hover={{ color: "gray.400", transitionDuration: "0.2s" }}
+          color="gray.500"
           cursor="pointer"
           fontSize="22px"
           onClick={onOpen}
         />
         <Flex justify="center" align="center" direction="column">
-          <Heading color="white">
+          <Heading color="gray.700">
             {subject} {catalog}
           </Heading>
-          <Text color="gray.100">{title}</Text>
+          <Text color="gray.600">{title}</Text>
         </Flex>
       </Box>
     </>

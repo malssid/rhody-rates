@@ -12,7 +12,7 @@ import {
   DrawerCloseButton,
   useDisclosure,
   Button,
-  useToast,
+  Select,
 } from "@chakra-ui/react";
 import Student from "../utils/Student";
 import { useQuery } from "react-query";
@@ -21,13 +21,12 @@ import Navbar from "./Navbar";
 import Auth from "../utils/Auth";
 import { useAuth } from "../contexts/AuthContext";
 
-export default function Header({ setKeyword }) {
+export default function Header({ setKeyword, setSort, sort }) {
   const { isLoading, error, data } = useQuery("profile", Student.getProfile);
 
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const { setIsAuthenticated, isAuthenticated, setUser } = useAuth();
-  const toast = useToast();
   const navigate = useNavigate();
 
   const handleSearch = (e) => {
@@ -35,6 +34,11 @@ export default function Header({ setKeyword }) {
       setKeyword(e.target.value);
       onClose();
     }
+  };
+
+  const handleSort = (e) => {
+    setSort(e.target.value);
+    onClose();
   };
 
   const handleReset = () => {
@@ -47,12 +51,6 @@ export default function Header({ setKeyword }) {
     if (data.success) {
       setUser(data.user);
       setIsAuthenticated(false);
-      toast({
-        title: "Successfully Logged Out",
-        status: "success",
-        isClosable: true,
-        position: "top",
-      });
       navigate("/");
     }
   };
@@ -68,72 +66,82 @@ export default function Header({ setKeyword }) {
         autoFocus={false}
       >
         <DrawerOverlay />
-        <DrawerContent
-          sx={{
-            background: "rgba( 188, 188, 221, 0.32 )",
-            boxShadow: "0 8px 32px 0 rgba(31, 38, 135, 0.02)",
-            backdropFilter: "blur(8px)",
-          }}
-          borderRightRadius="xl"
-        >
-          <DrawerCloseButton color="gray.300" _hover={{ color: "gray.200" }} />
+        <DrawerContent bg="gray.100" borderRightRadius="xl">
+          <DrawerCloseButton
+            color="gray.700"
+            _hover={{ color: "gray.600", transitionDuration: "0.2s" }}
+          />
           <DrawerBody mt={6}>
             <VStack mb={12} textAlign="center">
-              <Heading color="white" fontWeight="600" size="lg">
+              <Heading color="gray.800" fontWeight="600" size="lg">
                 Search
               </Heading>
               <Input
-                w={{ sm: 60, md: "100%" }}
-                bg="gray.400"
-                color="black"
-                border="none"
-                _focus={{ bg: "gray.300", boxShadow: "xl" }}
                 onKeyPress={handleSearch}
+                borderColor="gray.400"
               />
-              <Text color="gray.100">
-                Press <Kbd color="black">enter</Kbd> to filter results by
-                keyword
+              <Text color="gray.700">
+                Press{" "}
+                <Kbd color="black" bg="gray.50">
+                  enter
+                </Kbd>{" "}
+                to filter results by keyword
               </Text>
               <Button
-                _focus={{ border: "none" }}
-                bg="gray.300"
                 onClick={handleReset}
-                color="gray.800"
-                boxShadow="xl"
-                _hover={{ bg: "gray.200" }}
+                bg="blue.800"
+                _hover={{ bg: "blue.700" }}
+                color="gray.200"
               >
                 Reset
               </Button>
             </VStack>
+            <VStack mb={12} textAlign="center">
+              <Heading color="gray.800" fontWeight="600" size="lg">
+                Sort
+              </Heading>
+              <Select
+                onChange={handleSort}
+                borderColor="gray.400"
+                value={sort}
+              >
+                <option value=""></option>
+                <option value="likes">Likes</option>
+                <option value="dislikes">Dislikes</option>
+              </Select>
+              <Text color="gray.700">
+                Sort by likes or dislikes (descending). Default option sorts by
+                course ID.
+              </Text>
+            </VStack>
             <VStack textAlign="center">
-              <Heading color="white" fontWeight="600" size="lg">
+              <Heading color="gray.800" fontWeight="600" size="lg">
                 Profile
               </Heading>
-              <Text color="gray.100">
-                <Box color="gray.50" as="span" fontWeight="500">
+              <Text color="gray.600">
+                <Box color="gray.700" as="span" fontWeight="500">
                   Username:
                 </Box>{" "}
                 {data?.username}
               </Text>
-              <Text color="gray.100">
-                <Box color="gray.50" as="span" fontWeight="500">
+              <Text color="gray.600">
+                <Box color="gray.700" as="span" fontWeight="500">
                   Year:
                 </Box>{" "}
                 {data?.year}
               </Text>
-              <Text color="gray.100">
-                <Box color="gray.50" as="span" fontWeight="500">
+              <Text color="gray.600">
+                <Box color="gray.700" as="span" fontWeight="500">
                   Major:
                 </Box>{" "}
                 {data?.major}
               </Text>
               <Button
                 _focus={{ border: "none" }}
-                bg="gray.300"
                 onClick={handleSignOut}
-                color="gray.800"
-                boxShadow="xl"
-                _hover={{ bg: "gray.200" }}
+                bg="blue.800"
+                color="gray.200"
+                _hover={{ bg: "blue.700" }}
               >
                 Sign Out
               </Button>

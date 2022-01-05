@@ -1,7 +1,7 @@
 const Course = {
-  getCourses: async (page = 1, keyword) => {
+  getCourses: async (page = 1, keyword, sort) => {
     const response = await fetch(
-      `${process.env.REACT_APP_API_URL}/courses?keyword=${keyword}&page=${page}`,
+      `${process.env.REACT_APP_API_URL}/courses?keyword=${keyword}&sort=${sort}&page=${page}`,
       { credentials: "include" }
     );
     if (response.status !== 401) {

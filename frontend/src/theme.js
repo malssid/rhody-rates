@@ -9,21 +9,19 @@ const theme = extendTheme({
     Button: {
       baseStyle: {
         fontFamily: "Roboto",
+        fontWeight: "500",
       },
     },
   },
   styles: {
     global: {
       body: {
-        bgImage: "url(wavebg.svg)",
-        bgRepeat: "no-repeat",
-        bgSize: "cover",
-        backgroundAttachment: "fixed",
+        bgColor: "#e8e9ef",
       },
       html: {
         height: "100%",
         overflowX: "hidden",
-        overflowY: "hidden"
+        overflowY: "hidden",
       },
       a: {
         textDecor: "none",

@@ -18,15 +18,15 @@ export default function Navbar({ onOpen }) {
       <Flex px={6} pt={5} align="center" mb={4}>
         <HamburgerIcon
           cursor="pointer"
-          color="gray.300"
-          _hover={{ color: "gray.200" }}
+          color="gray.700"
+          _hover={{ color: "gray.600", transitionDuration: "0.2s" }}
           fontSize={28}
           onClick={onOpen}
         />
         <Spacer />
         <HStack cursor="default">
-          <Icon color="blue.400" fontSize={32} as={GiBigWave} />
-          <Heading color="#abd7ff" size="lg">
+          <Icon color="blue.500" fontSize={32} as={GiBigWave} />
+          <Heading color="blue.800" size="xl">
             RhodyRates
           </Heading>
         </HStack>
