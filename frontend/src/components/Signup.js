@@ -20,6 +20,7 @@ import {
 import { GiBigWave } from "react-icons/gi";
 import BeatLoader from "react-spinners/BeatLoader";
 import Auth from "../utils/Auth";
+import MetaTags from "react-meta-tags";
 
 export default function Signup() {
   const [loading, setLoading] = useState(false);
@@ -159,6 +160,9 @@ export default function Signup() {
 
   return (
     <>
+      <MetaTags>
+        <title>RhodyRates - Sign Up</title>
+      </MetaTags>
       <Flex
         height="100vh"
         my={[6, "auto"]}
@@ -262,7 +266,7 @@ export default function Signup() {
                   type="submit"
                   bg="blue.800"
                   color="gray.200"
-                  _hover={{bg:"blue.700"}}
+                  _hover={{ bg: "blue.700" }}
                 >
                   {loading || "Sign Up"}
                 </Button>

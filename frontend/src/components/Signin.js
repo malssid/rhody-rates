@@ -21,6 +21,7 @@ import {
 import { GiBigWave } from "react-icons/gi";
 import BeatLoader from "react-spinners/BeatLoader";
 import { useNavigate } from "react-router-dom";
+import MetaTags from "react-meta-tags";
 
 export default function Signin() {
   const [loading, setLoading] = useState(false);
@@ -55,6 +56,9 @@ export default function Signin() {
 
   return (
     <>
+      <MetaTags>
+        <title>RhodyRates - Sign In</title>
+      </MetaTags>
       <Flex height="100vh" my="auto" pb={12} align="center" justify="center">
         <Stack align="center" spacing={2}>
           <Text color="gray.600">
@@ -111,7 +115,7 @@ export default function Signin() {
                   type="submit"
                   bg="blue.800"
                   color="gray.200"
-                  _hover={{bg:"blue.700"}}
+                  _hover={{ bg: "blue.700" }}
                 >
                   {loading || "Sign In"}
                 </Button>
