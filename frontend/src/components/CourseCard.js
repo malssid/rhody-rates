@@ -148,8 +148,8 @@ export default function CourseCard({
         bg="white"
         borderRadius="lg"
         textAlign="center"
-        w={["300px", "400px"]}
-        h="170px"
+        w="300px"
+        h="185px"
         p={4}
         m={2}
         shadow="md"
