@@ -91,7 +91,8 @@ export default function Home() {
           <Navbar setKeyword={setKeyword} setSort={setSort} sort={sort} />
           <Flex direction="row">
             <Flex
-              px={4}
+              ml={4}
+              px={2}
               minW="25%"
               display={{ base: "none", md: "flex" }}
               direction="column"
@@ -101,7 +102,7 @@ export default function Home() {
                   Search
                 </Heading>
                 <Input
-                  w="70%"
+                  w="80%"
                   onKeyPress={handleSearch}
                   borderColor="gray.400"
                 />
@@ -129,7 +130,7 @@ export default function Home() {
                   onChange={handleSort}
                   borderColor="gray.400"
                   value={sort}
-                  w="70%"
+                  w="80%"
                 >
                   <option value=""></option>
                   <option value="likes">Likes</option>
